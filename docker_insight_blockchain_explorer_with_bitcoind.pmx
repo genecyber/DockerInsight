@@ -1,0 +1,18 @@
+---
+name: Docker Insight Blockchain Explorer With Bitcoind
+description: ''
+keywords: ''
+type: NodeJS
+documentation: |
+  CenturyLinkLabs/buildpack-runner
+  ============================
+  It's your GitHub repo code running in-container via Panamax.
+images:
+- name: maxexcloo_nodejs
+  source: maxexcloo/nodejs:latest
+  category: Web Tier
+  type: Default
+- name: bexio_bitcoind_1
+  source: bexio/bitcoind:latest
+  category: Bitcoin
+  type: Default
