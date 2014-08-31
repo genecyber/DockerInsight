@@ -8,11 +8,24 @@ documentation: |
   ============================
   It's your GitHub repo code running in-container via Panamax.
 images:
-- name: maxexcloo_nodejs
-  source: maxexcloo/nodejs:latest
+- name: MyWebApp
+  source: centurylink/buildpack-runner:latest
   category: Web Tier
   type: Default
-- name: bexio_bitcoind_1
+  expose:
+  - '80'
+  - '3001'
+  environment:
+  - variable: GIT_REPO
+    value: https://github.com/bitpay/insight.git
+  - variable: PORT
+    value: '3001'
+  command: cd insight && npm start
+- name: cmfatih_nodejs
+  source: cmfatih/nodejs:latest
+  category: Web Tier
+  type: Default
+- name: bexio_bitcoind_2
   source: bexio/bitcoind:latest
-  category: Bitcoin
+  category: Crypto
   type: Default
